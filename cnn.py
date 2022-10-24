@@ -3,7 +3,7 @@
 from keras.preprocessing.image import ImageDataGenerator
 # image settings
 
-image_size=64
+image_size=32
 batch_size=32
 
 train_datagen = ImageDataGenerator(
@@ -68,10 +68,10 @@ model.summary()
 # %%
 history = model.fit_generator(
         training_data,
-        steps_per_epoch=int(len(training_data.filenames)/batch_size),
+        steps_per_epoch=312,
         epochs=12,
         validation_data=testing_data,
-        validation_steps=int(len(testing_data.filenames)/batch_size))
+        validation_steps=30)
 
 
 
@@ -117,5 +117,134 @@ print(len(testing_data))
 #%%
 import tensorflow as tf
 tf.__version__
+# %%
 
+# model
+
+from keras.models import Sequential
+from keras.layers import Conv2D,MaxPooling2D,Dense,Flatten,Dropout
+
+model = Sequential()
+model.add(Conv2D(64,(3,3),activation="relu", input_shape =(image_size,image_size,3)))
+model.add(Conv2D(64,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+
+
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(512,activation = "relu"))
+model.add(Dense(10,activation = "softmax"))
+
+model.compile(optimizer="Adadelta",loss="categorical_crossentropy",metrics=["acc"])
+
+model.summary()
+
+# %%
+
+# model
+
+from keras.models import Sequential
+from keras.layers import Conv2D,MaxPooling2D,Dense,Flatten,Dropout
+
+model = Sequential()
+model.add(Conv2D(64,(3,3),activation="relu", input_shape =(image_size,image_size,3)))
+model.add(Conv2D(64,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+
+
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(512,activation = "relu"))
+model.add(Dense(10,activation = "softmax"))
+
+model.compile(optimizer="SGD",loss="categorical_crossentropy",metrics=["acc"])
+
+model.summary()
+
+# %%
+
+# model
+
+from keras.models import Sequential
+from keras.layers import Conv2D,MaxPooling2D,Dense,Flatten,Dropout
+
+model = Sequential()
+model.add(Conv2D(64,(3,3),activation="relu", input_shape =(image_size,image_size,3)))
+model.add(Conv2D(64,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(Conv2D(128,(3,3),activation="relu"))
+model.add(MaxPooling2D(2,2))
+
+
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(512,activation = "relu"))
+model.add(Dense(10,activation = "softmax"))
+
+model.compile(optimizer="Adam",loss="categorical_crossentropy",metrics=["acc"])
+
+model.summary()
+
+#%%
+print("RMSprop")
+# %%
+# model
+
+from keras.models import Sequential
+from keras.layers import Conv2D,MaxPooling2D,Dense,Flatten,Dropout
+
+model = Sequential()
+model.add(Conv2D(64,(3,3),activation="tanh", input_shape =(image_size,image_size,3)))
+model.add(Conv2D(64,(3,3),activation="tanh"))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(128,(3,3),activation="tanh"))
+model.add(Conv2D(128,(3,3),activation="tanh"))
+model.add(MaxPooling2D(2,2))
+
+
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(512,activation = "tanh"))
+model.add(Dense(10,activation = "softmax"))
+
+model.compile(optimizer="Adam",loss="categorical_crossentropy",metrics=["acc"])
+
+model.summary()
+
+#%%
+print("Adam and tanh")
+
+# %%
+# model
+
+from keras.models import Sequential
+from keras.layers import Conv2D,MaxPooling2D,Dense,Flatten,Dropout
+
+model = Sequential()
+model.add(Conv2D(64,(3,3),activation="tanh", input_shape =(image_size,image_size,3)))
+model.add(Conv2D(64,(3,3),activation="tanh"))
+model.add(MaxPooling2D(2,2))
+model.add(Conv2D(128,(3,3),activation="tanh"))
+model.add(Conv2D(128,(3,3),activation="tanh"))
+model.add(MaxPooling2D(2,2))
+
+
+model.add(Flatten())
+model.add(Dropout(0.5))
+model.add(Dense(512,activation = "tanh"))
+model.add(Dense(10,activation = "softmax"))
+
+model.compile(optimizer="RMSprop",loss="categorical_crossentropy",metrics=["acc"])
+
+model.summary()
+
+#%%
+print("RMSprop and tanh")
 # %%
