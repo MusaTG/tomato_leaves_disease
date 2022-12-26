@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cardTint">#294048</color>
+    <color name="background">#132D37</color>
+    <color name="button">#538862</color>
+    <color name="text">#ffffff</color>
+    <color name="bar">#899764</color>
+    <color name="backgroundAlpha">#abb2b9</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

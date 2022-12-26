@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="@color/bar"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yaprak Tahmini"
+                android:textSize="36dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/barTitle" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@color/backgroundAlpha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/title"/>
+
+    <Button
+        android:id="@+id/selectImage"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:textColor="@color/white"
+        android:text="Fotoğraf Seç"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/capture"
+        android:textColor="@color/white"
+        android:layout_below="@+id/selectImage"
+        android:layout_centerHorizontal="true"
+        android:text="Kamera"/>
+
+    <Button
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/predict"
+        android:textColor="@color/white"
+        android:layout_below="@+id/capture"
+        android:layout_centerHorizontal="true"
+        android:text="Tahmin Et"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/predict"
+        android:id="@+id/predictView"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="deneme"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:id="@+id/resultText"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Tedavi"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:id="@+id/resultBtn"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/plantPage"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/predictView"
+        android:text="Yaprak Hastalıkları"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

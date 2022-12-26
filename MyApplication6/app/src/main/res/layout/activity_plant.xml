@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".PlantActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bar">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="@color/bar"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toolbar Title"
+                android:textSize="24dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/barTitle" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/bar"
+        android:id="@+id/linearPlant">
+        <ImageView
+            android:id="@+id/plantImg"
+            android:layout_width="150dp"
+            android:layout_margin="10dp"
+            android:background="@color/cardTint"
+            android:layout_height="150dp"/>
+        <Button
+            android:id="@+id/videoButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:text="Video"
+            android:textColor="@color/white"
+            android:layout_below="@+id/linearPlant"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearPlant"
+        android:background="@color/cardTint"
+        android:layout_margin="10dp"
+        tools:ignore="SpeakableTextPresentCheck">
+        <TextView
+            android:id="@+id/detailText"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Burda tedavi açıklamalar"
+            android:textColor="@color/white"
+            android:layout_margin="15dp"
+            />
+    </ScrollView>
+
+</RelativeLayout>
